@@ -1,38 +1,45 @@
 #Faça um programa que peça para n pessoas a sua idade, ao final o programa devera verificar se a média de idade 
-# da turma varia entre 0 e 25,26 e 60 e maior que 60; e então, dizer se a turma é jovem, adulta ou idosa, conforme a média calculada.
-from socket import IPPROTO_DSTOPTS
+# da turma varia entre 0 e 25,26 e 60 e maior que 60; e então, dizer se a turma é jovem, adulta ou idosa, conforme a média calcula
 
-somaj = 0
-jovens = 0
-adultos = 0
+mediaj = 0
+jovem = 0
+adulto = 0
 idoso = 0
-cont=0
-while True:
+somaj=0
+somad = 0
+somai = 0
+
+for idade in range (0,10):
+        idade = float(input("Digite sua idade: "))    
+
+    
+        if idade>0 and idade<=25:
+            somaj+=idade
+            jovem+=1
+        
+        elif idade>=26 and idade<=60:
+            somad+=idade
+            adulto+=1
+        
+        
+        elif idade>60:
+            somai+=idade
+            idoso+=1
+        
 
 
+print ('Número de jovens entrevistados: {}'.format(jovem))
+media = somaj/jovem
+print ("media de idade dos jovens é: ",media )
 
-	idade = int(input("Digite sua idade: "))
 
-	for idade in range (0,100):
-	
-		if idade ==0:
-			break
+print("Número de adultos entrevistados: {}".format(adulto))
+media = somad/adulto
+print ("media de idade dos adultos é: ",media )
 
-		elif idade>0 and idade<=25:
-			jovens = jovens + 1
-			
-		elif idade>=26 and idade<=60:
-			adultos = adultos + 1
-
-		elif idade>60:
-			idoso = idoso + 1
-			
-		
-
-print ("A soma de Jovens: ",jovens, "\n A media de idade dos jovens é: ",somaj)
-print("A soma de Adultos: ",adultos)
-print("A soma de Idosos: ",idoso)
-
+print("Número de Idosos entrevistados: {}".format(idoso))
+media = somai/idoso
+print ("media de idade dos idosos é: ",media)
 
 
 
