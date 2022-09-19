@@ -1,6 +1,6 @@
 import sys
 from PyQt5 import QtWidgets 
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QMenu, QMessageBox,QLabel  
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QMenu, QMessageBox,QLabel,QRadioButton  
 from PyQt5.QtGui import QIcon, QPixmap, QFont
 from PyQt5.QtCore import QTimer, QSize
 from tkinter import * 
@@ -29,18 +29,26 @@ class Janela (QMainWindow):
         self.botao5 = QPushButton("Enviar Mensagem",self)
         self.botao6 = QPushButton("Contador",self)
         self.botaoLabel = QPushButton ("LABEL",self)
-        self.botaoVermelho =QPushButton ("Red",self)
+        '''self.botaoVermelho =QPushButton ("Red",self)
         self.botaoAzul = QPushButton ("Blue",self)
         self.botaoVerde = QPushButton ("Green",self)
-        self.botaoAmarelo = QPushButton ("Yellow",self)
+        self.botaoAmarelo = QPushButton ("Yellow",self)'''
+        self.labelVermelho =QLabel ("Red",self)
+        self.labelAzul = QLabel ("Blue",self)
+        self.labelVerde = QLabel ("Green",self)
+        self.labelAmarelo = QLabel ("Yellow",self)
         self.botaoCentral = QPushButton ("",self)
-        self.botaoRadio = QPushButton (self)
+        self.vermelhoRadio = QRadioButton (self)
+        self.azulRadio = QRadioButton (self)
+        self.verdeRadio = QRadioButton (self)
+        self.amareloRadio = QRadioButton (self)
         self.label1 = QLabel ("COR DO TEXTO",self)
         
 
         #botao1
         self.botao1.move(50,50)
 
+    
         #botao2
         self.botao2.move(50,100)
         self.botao2.setIcon(QIcon(QPixmap("Documents\project\python.png")))
@@ -77,11 +85,12 @@ class Janela (QMainWindow):
         self.label1.resize (150,150)
 
 
-        #botao Vermelho
-        self.botaoVermelho.move (800,500)
-        self.botaoVermelho.resize (100,50)
-        self.botaoVermelho.setStyleSheet ('QPushButton {background-color: red}')
-        self.botaoRadio.setBu
+        '''#botao Vermelho
+    
+        #self.botaoVermelho.move (800,500)
+        #self.botaoVermelho.resize (100,50)
+        #self.botaoVermelho.setStyleSheet ('QPushButton {background-color: red}')
+        
 
         #botao Azul
         self.botaoAzul.move (1000,500)
@@ -96,22 +105,48 @@ class Janela (QMainWindow):
         #botao Amarelo
         self.botaoAmarelo.move (1400,500)
         self.botaoAmarelo.resize (100,50)
-        self.botaoAmarelo.setStyleSheet ('QPushButton {background-color: yellow}')
+        self.botaoAmarelo.setStyleSheet ('QPushButton {background-color: yellow}')'''
 
+        #label Vermelho
+        self.vermelhoRadio.move(780,500)
+        self.labelVermelho.move (800,500)
+
+        #label Azul
+        self.azulRadio.move(780,520)
+        self.labelAzul.move (800,520)
+
+        #label Verde
+        self.verdeRadio.move(780,540)
+        self.labelVerde.move (800,540)
+
+        #label Amarelo
+        self.amareloRadio.move(780,560)
+        self.labelAmarelo.move (800,560)
+
+        
         #botão Central
 
         self.botaoCentral.move (900,90)
         self.botaoCentral.resize (350,200)
         self.botaoCentral.setStyleSheet ('QPushButton {background-color: white}')
+
+
             
         #ações
         self.botao1.clicked.connect(self.usarLabel)   
         self.botao3.clicked.connect(self.clean)
         self.botao5.clicked.connect(self.enviaMensagem)
-        self.botaoVermelho.clicked.connect (self.BtVermelho)
+
+        self.vermelhoRadio.clicked.connect (self.BtVermelho)
+        self.azulRadio.clicked.connect (self.BtAzul)
+        self.verdeRadio.clicked.connect (self.BtVerde)
+        self.amareloRadio.clicked.connect (self.BtAmarelo)
+
+        '''self.botaoVermelho.clicked.connect (self.BtVermelho)
         self.botaoAzul.clicked.connect (self.BtAzul)
         self.botaoVerde.clicked.connect (self.BtVerde)
-        self.botaoAmarelo.clicked.connect (self.BtAmarelo)
+        self.botaoAmarelo.clicked.connect (self.BtAmarelo)'''
+
         
         
         self.show()
